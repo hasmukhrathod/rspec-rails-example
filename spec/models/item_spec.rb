@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "ActiveRecord Association" do
+    let(:item) {create(:item)}
+    it {item.should belong_to(:list)}
+  end
 end
