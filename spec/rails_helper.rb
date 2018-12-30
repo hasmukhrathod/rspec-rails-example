@@ -30,6 +30,17 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    # Choose a test framework:
+    with.test_framework :rspec
+    # Or, choose all of the above:
+    with.library :rails
+  end
+end
+
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   #config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -72,5 +83,7 @@ RSpec.configure do |config|
   config.after(:suite) do
     DatabaseCleaner.clean
   end
-  
+  #If you are using ActiveModel or ActiveRecord outside of Rails and you want to use model matchers in certain example groups, you'll need to manually include them. 
+  config.include(Shoulda::Matchers::ActiveModel, type: :model)
+  config.include(Shoulda::Matchers::ActiveRecord, type: :model)
 end
