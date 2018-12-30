@@ -29,5 +29,13 @@ module RspecDemoApp
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.generators do |generator|
+      generator.test_framework :rspec,
+                       fixtures: true,
+               controller_specs: true,
+                   helper_specs: false,
+                  routing_specs: false
+      generator.fixture_replacement :factory_bot, dir: "spec/factories"
+    end
   end
 end
