@@ -15,4 +15,15 @@ RSpec.describe List, type: :model do
       should validate_uniqueness_of(:name)
     end
   end
+  
+  describe "ActiveRecord Callbacks" do
+    let(:list) {build_stubbed(:list)}
+    subject {list.slug}
+    
+    it "should generate slug & save on create" do
+      list.run_callbacks :create
+      should_not be_empty
+    end
+    
+  end
 end
