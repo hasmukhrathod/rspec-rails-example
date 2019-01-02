@@ -51,6 +51,8 @@ group :test do
   gem 'shoulda-matchers', '4.0.0.rc1'
   gem 'rails-controller-testing' # If you are using Rails 5.x
   gem 'simplecov', require: false
+  gem 'cucumber-rails', require: false  ##acceptance test
+
 end
 
 group :development do

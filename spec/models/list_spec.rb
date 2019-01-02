@@ -17,6 +17,10 @@ RSpec.describe List, type: :model do
   end
   
   describe "ActiveRecord Callbacks" do
+    ##Reduce the number of objects persisted to the database. 
+    
+    ### `build` creates an Article object without saving
+    # `build_stubbed` creates an Article object and acts as an already saved Article
     let(:list) {build_stubbed(:list)}
     subject {list.slug}
     
