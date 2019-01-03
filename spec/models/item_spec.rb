@@ -4,10 +4,12 @@ RSpec.describe Item, type: :model do
   
   describe "should not valid without List" do
     it {should_not be_valid}
+    #it {is_expected.not_to be_valid}
   end
   describe "should be valid object" do
     subject {(build_stubbed(:item))}
-    it {is_expected.to be_valid}
+    it {should be_valid}
+    #it {is_expected.to be_valid}
   end
   
   describe "ActiveRecord Association" do
