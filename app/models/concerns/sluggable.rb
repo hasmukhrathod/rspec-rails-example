@@ -3,7 +3,6 @@ module Sluggable
   
   included do
     before_create :set_slug
-    validates :slug, uniqueness: true
   end
   
   def generate_slug

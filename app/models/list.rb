@@ -1,6 +1,5 @@
 class List < ApplicationRecord
-  include Sluggable
-  
+  include Slugg
   has_many :items
   validates :name, :slug, presence: true, uniqueness: true
 end
