@@ -17,9 +17,9 @@ module Sluggable
     slug
   end
   
-   
-    def set_slug
-      self.slug = generate_slug
-    end
+  private
+  def set_slug
+    self.slug = generate_slug
+  end
   
 end

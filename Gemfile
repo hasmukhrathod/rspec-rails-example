@@ -40,6 +40,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
+  ## making "fake" objects as test data
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'guard-rspec', require: false
@@ -47,11 +48,14 @@ group :development, :test do
 end
 
 group :test do
+  ##To make sure that the state of the application is consistent every time we run our tests. 
   gem 'database_cleaner'
-  gem 'shoulda-matchers', '4.0.0.rc1'
+  ##wrappers around common Rails functionality, such as validations, associations, and redirects.
+  gem 'shoulda-matchers', '4.0.0.rc1'  
   gem 'rails-controller-testing' # If you are using Rails 5.x
   gem 'simplecov', require: false
-  gem 'cucumber-rails', require: false  ##acceptance test
+  ##acceptance test
+  gem 'cucumber-rails', require: false  
 
 end
 
