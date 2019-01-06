@@ -1,6 +1,7 @@
 module Sluggable
   extend ActiveSupport::Concern
   
+  ##to add callback
   included do
     before_create :set_slug
   end

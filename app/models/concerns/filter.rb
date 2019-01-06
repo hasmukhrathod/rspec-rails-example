@@ -9,6 +9,7 @@ module Filter
   
   private 
     def cuss_words
+      ##regular expression needed.
       {"Shit": "****", "Fuck":  "****"}
     end  
   
