@@ -1,0 +1,5 @@
+<h1> Home</h1>
+<% @posts.each do |x| %>
+<%= link_to x.title, post_path(x.slug) %></h2>
+  <p><%= x.body.html_safe %>
+<% end %>
