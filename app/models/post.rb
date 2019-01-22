@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   include Sluggable
   has_many :comments
+  belongs_to :user
   enum status: [:draft, :published]
   
   validates :title, presence: true

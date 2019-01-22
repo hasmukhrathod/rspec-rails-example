@@ -14,12 +14,13 @@ RSpec.describe "post page", type: :request do
     it "loads a new post page when "
     it "does not load a new page when not authentiated" do
       get '/posts/new'
-      expect(response).to redirect_to new_user_session_path
+      expect(response.body).to include('New Post')
     end
   end
   
   context "new post" do
     let(:user) {create(:user)}
+    #let(:post) {create(:post)}
     let(:post_attributes) {attributes_for(:post)}
     
     it "createa a new post when authenticated" do
@@ -28,6 +29,7 @@ RSpec.describe "post page", type: :request do
       expect(response).to render_template(:new)
       expect(response.body).to include('New Post')
       post '/posts', params: {post: post_attributes}
+      debugger
       expect(response).to redirect_to(assigns(:post))
       follow_redirect!
       expect(response).to render_template(:show)
